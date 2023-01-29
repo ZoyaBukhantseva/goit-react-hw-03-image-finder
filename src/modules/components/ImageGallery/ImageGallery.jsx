@@ -1,12 +1,17 @@
-import { fetchImage } from 'services/api';
+import  {fetchImage} from '..//..//..//services/api';
 import { Component } from 'react';
-import { PropTypes } from 'prop-types';
+import  PropTypes  from 'prop-types';
 import ImageGalleryItem from './ImageGalleryItem/ImageGalleryItem';
 import Modal from '..//..//..//shared/components/Modal/Modal';
 import Button from '..//..//..//shared/components/Button/Button';
 import Loader from '..//..//..//shared/components/Loader/Loader';
 
 import styles from './image-gallery.module.css';
+
+
+import EmptyView from '..//EmptyView/EmptyView';
+import ErrorView from '..//ErrorView/ErrorView';
+
 
 const status = {
   IDLE: 'idle',
@@ -97,16 +102,16 @@ class ImageGallery extends Component {
   render() {
     const {
       curStatus,
-    //   errorMessage,
+      errorMessage,
       imageList,
       showModal,
       id,
       currentPage,
       totalHits,
     } = this.state;
-    // if (curStatus === status.IDLE) {
-    //   return <EmptyView />;
-    // }
+    if (curStatus === status.IDLE) {
+      return <EmptyView />;
+    }
     if (curStatus === status.PENDING) {
       return <Loader />;
     }
@@ -135,9 +140,9 @@ class ImageGallery extends Component {
         </div>
       );
     }
-    // if (curStatus === status.REJECT) {
-    //   return <ErrorView message={errorMessage} tryAgain={this.reloadRequest} />;
-    // }
+    if (curStatus === status.REJECT) {
+      return <ErrorView message={errorMessage} tryAgain={this.reloadRequest} />;
+    }
   }
 }
 ImageGallery.propTypes = {
