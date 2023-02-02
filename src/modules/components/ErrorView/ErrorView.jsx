@@ -15,7 +15,7 @@ const ErrorView = ({ message, tryAgain }) => {
   );
 };
 ErrorView.propTypes = {
-  message: PropTypes.string,
-  tryAgain: PropTypes.func,
+  message: PropTypes.string.isRequired,
+  tryAgain: PropTypes.func.isRequired,
 };
 export default ErrorView;

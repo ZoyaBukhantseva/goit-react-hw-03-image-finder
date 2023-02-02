@@ -46,5 +46,5 @@ export  default SearchBar;
 
 
 SearchBar.propTypes = {
-    onSubmit: PropTypes.func,
+    onSubmit: PropTypes.func.isRequired,
   };
