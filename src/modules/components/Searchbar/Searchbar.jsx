@@ -14,7 +14,7 @@ class SearchBar extends Component{
         e.preventDefault();
         if (this.state.search.trim() !== '') {
           this.props.onSubmit(this.state.search);
-          this.setState({ search: '' });
+          // this.setState({ search: '' });
         }
       };
     render() {
